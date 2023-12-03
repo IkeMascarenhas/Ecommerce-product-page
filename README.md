@@ -8,7 +8,7 @@ Essa é uma solução para o desafio [E-commerce product page challenge on Front
 
 ### Links
 
-- Acesso ao site funcional: [Add live site URL here](https://ikemascarenhas.github.io/Ecommerce-product-page/)
+- Acesso ao site funcional: [Ecommerce Product Page](https://ikemascarenhas.github.io/Ecommerce-product-page/)
 
 ### Construido com
 
