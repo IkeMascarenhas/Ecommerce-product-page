@@ -1,0 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+$PrimaryOrange:hsl(26, 100%, 55%);
+$paleOrange:hsl(25, 100%, 94%);
+$lightBoxBackground:hsl(0, 0%, 0%);
+$veryDarkGray:hsl(220, 13%, 13%);
+$DarkGray:hsl(219, 9%, 45%);
+$Gray:hsl(220, 14%, 75%);
+$lightGray:hsl(223, 64%, 98%);
+
+body{
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Kumbh Sans', sans-serif;
+    overflow-x: hidden;
+}
+html{
+    overflow-x:hidden;
+}
+
+button,a{
+    cursor: pointer;
+}
+
+@mixin configImg{
+    aspect-ratio: 1/1;
+    object-fit: contain;
+}
+
+@media screen{
+    $fs-1:3vw;
+    $fs-2:4vw;
+    $fs-3:6vw;
+    $fs-4:8vw;
+    $fs-5:12vw;
+    $fw-bold:700;
+    $fw-light:400;
+
+    .darkBackground{
+        background-color: rgb(0, 0, 0);
+        opacity: 0.75;
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        z-index: 9;
+        transition-duration: .5s;
+    }
+
+    #cartInfo{
+        display: grid;
+        grid-template-rows: 0.5fr 0.1fr 2fr;
+        width: 90vw;
+        height: 60vw;
+        margin: 2vw auto;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top:-200vw;/*31*/
+        left: 50%;
+        z-index: 5;
+        color: black;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 2px 2px 5px black;
+        transition-duration: .5s;
+        h2{
+            padding: 5vw;
+            font-size: $fs-2;
+        }
+        hr{
+            width: 100%;
+            background-color: $Gray;
+            height: 1px;
+            display: grid;
+            place-content: center;
+        }
+        // .emptyCart{
+        //     display: grid;
+        //     place-content: center;
+        // }
+        .emptyContent{
+            display: grid;
+            place-content: center;
+        }
+        .cartContent{
+            margin: 3vw;
+            display: grid;
+            grid-template-columns: 0.25fr 1fr 0.1fr;
+            grid-template-rows: repeat(2, 1fr);
+            grid-template-areas: 
+            "img txtContent delete"
+            "check check check";
+            img:first-child{
+                grid-area: img;
+                width: 80%;
+                justify-self: center;
+                align-self: center;
+                border-radius: 5px;
+            }
+            div{
+                grid-area: txtContent;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 2.5vw;
+                p{
+                    color: $DarkGray;
+                    font-size: $fs-2;
+                    line-height: 1.25;
+                }
+                p:last-child{
+                    display: flex;
+                    gap: 1.5vw;
+                    #showTotalPrice{
+                        font-weight: bold;
+                        color: black;
+                        margin-left: 1vw;
+                    }
+                }
+            }
+            a{
+                grid-area: check;
+                background-color: $PrimaryOrange;
+                display: grid;
+                align-self: center;
+                place-content: center;
+                border-radius: 10px;
+                color: #fff;
+                height: 80%;
+
+            }
+            #deleteContentCart{
+                grid-area: delete;
+                display: grid;
+                justify-self: center;
+                align-self: center;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .showCartInfo{
+        top: 27.5vh !important;
+        transition-duration: .5s;
+    }
+
+    header{
+        width: 100%;
+        height: 10vh;
+        display: grid;
+        grid-template-columns: 0.25fr 1fr 0.5fr;
+        place-items: center;
+        padding: 2vh 0;
+        z-index: 9;
+        #openMenu{
+            cursor: pointer;
+        }
+        #logo{
+            justify-self: start;
+            cursor: pointer;
+            aspect-ratio: 16/6;
+            object-fit: contain;
+            width: 60%;
+        }
+        div{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            span{
+                position: relative;
+                img{
+                    @include configImg();
+                    width: 100%;
+                }
+                p{
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    font-size:2vw;
+                    width: 2.5vw;
+                    height: 2.5vw;
+                    border-radius: 50%;
+                    text-align: center;
+                    background-color: $PrimaryOrange;
+                    color: white;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                
+            }
+            img{
+                @include configImg();
+                width: 25%;
+                cursor: pointer;
+            }
+        }
+        .openMenu{
+            left: 0 !important;
+            transition-duration: .5s;
+        }
+        nav{
+            position: absolute;
+            left: -70vw;
+            top: 0;
+            bottom: 0;
+            z-index: 10;
+            background-color: white;
+            width: 70vw;
+            padding: 5vw;
+            transition-duration: .5s;
+            img{
+                @include configImg();
+                margin-bottom: 5vh;
+                cursor: pointer;
+            }
+            ul{
+                display: flex;
+                flex-direction: column;
+                gap: 3vh;
+                a{
+                    color: black;
+                    font-weight: $fw-bold;
+    
+                }
+            }
+        }
+    }
+
+    main{
+        width: 100vw;
+        .swiper{
+            width: 100%;
+            img{
+                width: 100%;
+            }
+        }
+        .swiper-button-next::after{
+            content: '';
+        }
+        .swiper-button-prev::after{
+            content: '';
+        }
+        .swiper-btn-nav{
+            width: 10vw;
+            height: 10vw;
+            background-color: white;
+            padding: 1vw;
+            border-radius: 50%;
+            img{
+                width: 30%;
+            }
+            cursor: pointer;
+            &hover{
+                background-color: #ccc;
+            }
+        }
+        .thumb{
+            display: none;
+        }
+
+        .info-products{
+            display: flex;
+            flex-direction: column;
+            gap: 2vh;
+            width: 90vw;
+            margin: 2.5vh auto;
+            aside{
+                color: $PrimaryOrange;
+                text-transform: uppercase;
+                font-weight: $fw-bold;
+                font-size: $fs-1;
+                line-height: 1.25;
+                letter-spacing: 1vw;
+            }
+            h1{
+                font-weight: 700;
+                font-size: $fs-4;
+                line-height: 1.25;
+            }
+            p{
+                font-weight: $fw-light;
+                font-size: $fs-2;
+                line-height: 1.50;
+                color: $DarkGray;
+            }
+            .products-price{
+                display: grid;
+                grid-template-columns: 0.5fr 1.5fr 0.5fr;
+                align-items: center;
+                #price{
+                    display: flex;
+                    align-items: center;
+                    gap: 1vw;
+                    font-size: $fs-3;
+                    color: black;
+                    font-weight: $fw-bold;
+                    margin-right: 3vw;
+                    #itemPrice{
+                        font-size: $fs-3;
+                        color: black;
+                        font-weight: $fw-bold;
+                        margin-right: 3vw;
+                    }
+                    
+                }
+                p:nth-child(2){
+                    background-color: $paleOrange;
+                    border-radius: 10px;
+                    width: 25%;
+                    padding: 1vw 2vw;
+                    color: $PrimaryOrange;
+                    font-weight: $fw-bold;
+                    text-align: center;
+                    font-size: $fs-2;
+                }
+                #olderPrice{
+                    text-decoration: line-through;
+                    font-size: $fs-2;
+                    font-weight: $fw-bold;
+
+                }
+            }
+            .total-products{
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                background-color: $lightGray;
+                padding: 2vw 0;
+                border-radius: 0.625rem;
+                img{
+                    @include configImg();
+                    padding: 5vw;
+                    border-radius: 10px;
+                    transition-duration: .5s;
+                    &:hover{
+                        background-color: $paleOrange;
+                        transition-duration: .5s;
+                    }
+                }
+            }
+            button{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 3vw;
+                background-color: $PrimaryOrange;
+                color: white;
+                padding: 5vw 0;
+                border-radius: 0.625rem;
+                font-weight: $fw-bold;
+                font-size: 4.5vw;
+                margin-bottom: 5vh;
+                img{
+                    @include configImg();
+                }
+            }
+
+        }
+
+    }
+    .attribution{
+        background-color: $PrimaryOrange;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2vw;
+        padding: 2.5vw;
+        a{
+            color: white;
+            text-decoration: underline;
+        }
+    }
+
+    
+}
