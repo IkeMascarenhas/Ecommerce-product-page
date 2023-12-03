@@ -1,5 +1,5 @@
 const $btnCart = document.querySelector('#cart');
-const $cartInfo = document.querySelector('#cartInfo');4
+const $cartInfo = document.querySelector('#cartInfo');
 const $addToCart = document.querySelector('#addToCart');
 let $totalNumber = document.querySelector('#total-number');
 let saveNumber = 0
