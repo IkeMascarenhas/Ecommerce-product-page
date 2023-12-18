@@ -109,12 +109,11 @@ button, a {
     cursor: pointer;
   }
   .showCartInfo {
-    top: 27.5vh !important;
+    top: 250px !important;
     transition-duration: 0.5s;
   }
   header {
     width: 100%;
-    height: 10vh;
     display: grid;
     grid-template-columns: 0.25fr 1fr 0.5fr;
     place-items: center;
@@ -146,7 +145,7 @@ button, a {
        object-fit: contain;
     width: 100%;
   }
-  header div span p {
+  header div span #infoTotalItems {
     position: absolute;
     top: 0;
     right: 0;
@@ -215,8 +214,8 @@ button, a {
     content: "";
   }
   main .swiper-btn-nav {
-    width: 10vw;
-    height: 10vw;
+    width: 3rem;
+    height: 3rem;
     background-color: white;
     padding: 1vw;
     border-radius: 50%;
@@ -234,6 +233,7 @@ button, a {
   main .info-products {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 2vh;
     width: 90vw;
     margin: 2.5vh auto;
@@ -242,18 +242,18 @@ button, a {
     color: hsl(26, 100%, 55%);
     text-transform: uppercase;
     font-weight: 700;
-    font-size: 3vw;
+    font-size: clamp(0.5rem, 0.1154rem + 2.0513vw, 1.5rem);
     line-height: 1.25;
     letter-spacing: 1vw;
   }
   main .info-products h1 {
     font-weight: 700;
-    font-size: 8vw;
+    font-size: clamp(2rem, 1.6154rem + 2.0513vw, 2.5rem);
     line-height: 1.25;
   }
   main .info-products p {
     font-weight: 400;
-    font-size: 4vw;
+    font-size: 1rem;
     line-height: 1.5;
     color: hsl(219, 9%, 45%);
   }
@@ -266,26 +266,28 @@ button, a {
     display: flex;
     align-items: center;
     gap: 1vw;
-    font-size: 6vw;
+    font-size: 1rem;
     color: black;
     font-weight: 700;
     margin-right: 3vw;
   }
   main .info-products .products-price #price #itemPrice {
-    font-size: 6vw;
+    font-size: 1rem;
     color: black;
     font-weight: 700;
     margin-right: 3vw;
   }
   main .info-products .products-price p:nth-child(2) {
+    display: grid;
+    place-content: center;
     background-color: hsl(25, 100%, 94%);
     border-radius: 10px;
-    width: 25%;
-    padding: 1vw 2vw;
+    width: 30%;
+    padding: 0.5vw 2.25vw;
     color: hsl(26, 100%, 55%);
     font-weight: 700;
     text-align: center;
-    font-size: 4vw;
+    font-size: 0.8rem;
   }
   main .info-products .products-price #olderPrice {
     text-decoration: line-through;
@@ -304,7 +306,7 @@ button, a {
     aspect-ratio: 1/1;
     -o-object-fit: contain;
        object-fit: contain;
-    padding: 5vw;
+    padding: 1rem;
     border-radius: 10px;
     transition-duration: 0.5s;
   }
@@ -319,10 +321,10 @@ button, a {
     gap: 3vw;
     background-color: hsl(26, 100%, 55%);
     color: white;
-    padding: 5vw 0;
+    padding: 1.5rem 0;
     border-radius: 0.625rem;
     font-weight: 700;
-    font-size: 4.5vw;
+    font-size: 1.5rem;
     margin-bottom: 5vh;
   }
   main .info-products button img {
@@ -342,5 +344,161 @@ button, a {
   .attribution a {
     color: white;
     text-decoration: underline;
+  }
+}
+@media screen and (min-width: 720px) {
+  #openMenu, #closeMenu {
+    display: none;
+  }
+  header {
+    grid-template-columns: 0.5fr 1fr 1fr !important;
+    grid-template-areas: "logo nav cart";
+    gap: 2.5vw;
+    width: 80vw;
+    margin: auto;
+    height: unset;
+  }
+  header #logo {
+    grid-area: logo;
+    width: 100%;
+  }
+  header div {
+    justify-self: end;
+  }
+  header nav {
+    justify-self: start;
+    position: static;
+    background: none;
+    padding: 0;
+    width: unset;
+    z-index: 5;
+    gap: 2vw;
+  }
+  header nav ul {
+    gap: 1vw;
+    flex-direction: row;
+    width: 10%;
+  }
+  header nav ul li {
+    font-size: 1.5vw;
+  }
+  header nav ul li a {
+    font-weight: normal;
+    color: hsl(219, 9%, 45%);
+  }
+  hr {
+    width: 80vw;
+    margin: 1rem auto;
+    background-color: #ccc;
+    height: 2px;
+  }
+  main {
+    width: 80vw;
+    margin: 3rem auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 1vw;
+  }
+  main .info-products {
+    width: 45%;
+  }
+  main .slider {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 45%;
+  }
+  main .slider .swiper {
+    width: 100%;
+  }
+  main .slider .swiper div img {
+    border-radius: 10px;
+  }
+  main .slider .thumb {
+    display: block;
+  }
+  main .slider .thumb .swiper-slide {
+    border: none;
+  }
+  main .slider .thumb .swiper-slide img:hover {
+    opacity: 50%;
+    transition-duration: 0.1s;
+    border: 2px solid hsl(26, 100%, 55%);
+  }
+  main .slider .thumb .swiper-slide img:active {
+    opacity: 50%;
+    transition-duration: 0.1s;
+    border: 2px solid hsl(26, 100%, 55%);
+  }
+  #infoTotalItems {
+    width: 12px !important;
+    height: 12px !important;
+    font-size: 12px !important;
+  }
+  #cartInfo {
+    top: -100vw;
+    left: 75%;
+    width: 500px;
+    height: 300px;
+  }
+  #cartInfo h2 {
+    font-size: 2rem;
+    padding: 1rem;
+  }
+  #cartInfo .cartContent {
+    margin: 3vw;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 0.25fr 1fr 0.1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: "img txtContent delete" "check check check";
+  }
+  #cartInfo .cartContent img:first-child {
+    grid-area: img;
+    width: 90%;
+    justify-self: center;
+    align-self: center;
+    border-radius: 5px;
+  }
+  #cartInfo .cartContent div {
+    grid-area: txtContent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+  }
+  #cartInfo .cartContent div p {
+    color: hsl(219, 9%, 45%);
+    font-size: 1rem;
+    line-height: 1.25;
+  }
+  #cartInfo .cartContent div p:last-child {
+    display: flex;
+    gap: 1.5vw;
+  }
+  #cartInfo .cartContent div p:last-child #showTotalPrice {
+    font-weight: bold;
+    color: black;
+    margin-left: 1vw;
+  }
+  #cartInfo .cartContent a {
+    grid-area: check;
+    background-color: hsl(26, 100%, 55%);
+    display: grid;
+    align-self: center;
+    place-content: center;
+    border-radius: 10px;
+    color: #fff;
+    height: 80%;
+  }
+  #cartInfo .cartContent #deleteContentCart {
+    grid-area: delete;
+    display: grid;
+    justify-self: center;
+    align-self: center;
+    cursor: pointer;
+  }
+  .showCartInfo {
+    top: 30vh !important;
   }
 }/*# sourceMappingURL=style.css.map */
